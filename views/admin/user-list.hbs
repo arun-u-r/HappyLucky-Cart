@@ -1,0 +1,92 @@
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Happy Go Lucky </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-5 me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/admin"> Admin Panel </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/admin/user-list"> Users List </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/admin/add-product">Add Product</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="/admin/user-search" method="post" onsubmit="return validate()">
+                    <input class="form-control me-2 my-1" type="search" name="searchkey" placeholder="Search" aria-label="Search" id="searchId" >
+                    <button class="btn btn-outline-light me-5 my-1"   type="submit">Search</button>
+                </form>
+                <form action="/" method="post" class="d-flex">
+
+                    <button class="btn btn-outline-light form-control me-5 my-1" type="submit"
+                        onclick="return confirm('Do you want to logout from Happy Go Lucky ?')">Log Out
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<section>
+    <div class="container">
+        <h1 class="text-center m-5">Users</h1>
+
+        
+
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark text-center">
+                <tr>
+
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">DateOfBirth</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {{#each users}}
+                <tr>
+
+                    <td>{{this.name}} </td>
+                    <td>{{this.email}} </td>
+                    <td>{{this.DateOfBirth}} </td>
+                    <td>
+                        <a href="/admin/delete-user/{{this._id}}"
+                            onclick="return confirm('Do you want to delete {{this.email}} ?')"
+                            class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+        {{#if search}}
+        <a href="/admin/user-list"  class="btn btn-outline-dark mt-5 float-end">View All</a>
+        {{/if}}
+    </div>
+
+
+</section>
+
+<script>
+    function validate(){
+        if(document.getElementById("searchId").value===""){
+            return false
+        }else{
+            return true
+        }
+    }
+</script>
