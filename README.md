@@ -5,7 +5,7 @@ A mini e-commerce web site with backend (node.js) and database(Mongodb) using Ex
 - User registration and authentication
 - Product listing and details
 - admin side authentication
-- Order placement and tracking
+- Admin can edit both user and product details
 
 ## Technologies Used
 
