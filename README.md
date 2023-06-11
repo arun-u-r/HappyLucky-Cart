@@ -1,10 +1,11 @@
 # HappyLucky-Cart
-A mini e-commerce web site with backend (node.js) and database(Mongodb) using Express-generator and Hbs view engine
+A mini e-commerce web site with backend (node.js) and database(Mongodb) using Express-generator and Hbs view engine.
+Using MVC(model,view & controller) approach.
 ## Features
 
 - User registration and authentication
 - Product listing and details
-- admin side authentication
+- Admin side authentication
 - Admin can edit both user and product details
 
 ## Technologies Used
